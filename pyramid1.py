@@ -1,19 +1,25 @@
 from termcolor import colored;
 from colorama import init;
+from time import sleep;
 
 init();
+
+MakeColored = lambda string, color='red': colored(string, color, attrs=['bold']); #colors words.
 
 '''
 LIST COMPREHENSION COMBINED WITH .join().
 '''
+print(f"Pyramid Builder using {MakeColored('.join()', 'light_red')} AND {MakeColored('LIST COMPREHENSION!!!', 'light_red')}");
 ListComprehensionPyramidBuilder = lambda character, rows: "\n".join([character*(i+1) for i in range(rows)]); #list comprehension.
 print(ListComprehensionPyramidBuilder("X", 5))
 
-print("\n")
+print()
+sleep(1.75);
 
 '''
 RECURSION.
 '''
+print(f"Python Pyramid Builder using the power of {MakeColored('RECURSION', 'light_yellow')}!!!")
 def RecursionPyramidBuilder(character, rows):
    color = "red" if (rows%2==1) else "light_green";
    """
@@ -22,18 +28,20 @@ def RecursionPyramidBuilder(character, rows):
    if rows<2:
       return colored(character, color, attrs=['bold']) + "\n";
    #The base PyramidBuilder(character, rows-1) will ALWAYS end with a new line. Then, below that, we have {character * rows remaining} that signifies the end of that iteration.
-   return colored(f"{RecursionPyramidBuilder(character, rows-1)}", color, attrs=['bold']) + colored(character*rows, color, attrs=['bold']) + "\n";
+   return MakeColored(f"{RecursionPyramidBuilder(character, rows-1)}", color) + MakeColored(character*rows, color) + "\n"
 print(RecursionPyramidBuilder("*", 5))
 
-print("\n")
+print()
+sleep(1.75);
 
 '''
 REGULAR LOOPS.
 '''
+print(f"Python Pyramid Builder using regular {MakeColored('FOR LOOP', 'light_green')} that actually returns something!!!")
 def LoopPyramidBuilder(character, rows):
    pyramid = "";
    for i in range(rows):
-      pyramid = pyramid + (character*i) + "\n"
+      pyramid = pyramid + (character*i) + "\n" if i !=0 else pyramid + (character*i);
    return pyramid;
 print(LoopPyramidBuilder("O", 5))
 
