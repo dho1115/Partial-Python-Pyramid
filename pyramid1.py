@@ -35,7 +35,6 @@ def LoopPyramidBuilder(character, rows):
    for i in range(rows):
       pyramid = pyramid + (character*i) + "\n"
    return pyramid;
-
 print(LoopPyramidBuilder("O", 5))
 
 
