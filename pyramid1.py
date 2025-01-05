@@ -51,7 +51,7 @@ sleep(1.75);
 '''
 Using Enums!!!
 '''
-print(f"'E'ntroding... The {colored('ENUMERATING PYRAMID', 'light_green', attrs=['bold'])}!!!")
+print(f"'E'ntroducing... The {colored('ENUMERATING PYRAMID', 'light_green', attrs=['bold'])}!!!")
 def EnumeratingPyramid(character, rows):
    pyramid = list(enumerate([character for _ in range(rows)], 1));
    return "".join([f"{i[1]*i[0]}\n" for i in pyramid]);
