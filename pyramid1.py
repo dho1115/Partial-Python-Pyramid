@@ -29,7 +29,7 @@ def RecursionPyramidBuilder(character, rows):
       return colored(character, color, attrs=['bold']) + "\n";
    #The base PyramidBuilder(character, rows-1) will ALWAYS end with a new line. Then, below that, we have {character * rows remaining} that signifies the end of that iteration.
    return MakeColored(f"{RecursionPyramidBuilder(character, rows-1)}", color) + MakeColored(character*rows, color) + "\n"
-print(RecursionPyramidBuilder("*", 5))
+print(RecursionPyramidBuilder("x", 10))
 
 print()
 sleep(1.75);
@@ -44,6 +44,19 @@ def LoopPyramidBuilder(character, rows):
       pyramid = pyramid + (character*i) + "\n" if i !=0 else pyramid + (character*i);
    return pyramid;
 print(LoopPyramidBuilder("O", 5))
+
+print()
+sleep(1.75);
+
+'''
+Using Enums!!!
+'''
+print(f"'E'ntroding... The {colored('ENUMERATING PYRAMID', 'light_green', attrs=['bold'])}!!!")
+def EnumeratingPyramid(character, rows):
+   pyramid = list(enumerate([character for _ in range(rows)], 1));
+   return "".join([f"{i[1]*i[0]}\n" for i in pyramid]);
+
+print(EnumeratingPyramid("^", 9));
 
 
 
